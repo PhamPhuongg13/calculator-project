@@ -41,21 +41,14 @@ function process(nums, op) {
     t2 = nums.pop(),
     ope = op.pop();
 
-    console.log(ope);
-    
   if (ope === "+") return Number(t1) + Number(t2);
-  else if (ope === "-") {
-    console.log("ok");
-    
-    return Number(t2) - Number(t1);
-  }
+  else if (ope === "-") return Number(t2) - Number(t1);
   else if (ope === "*") return Number(t2) * Number(t1);
   else if (ope === "/") return Number(t2) / Number(t1); 
   else return Number(t2) % Number(t1); 
 }
 
 function calculate(str) {
-  console.log(`cần tính ${str}`);
   let nums = new Array();
   let op = new Array();
   let number = "";
@@ -75,20 +68,11 @@ function calculate(str) {
             
             op.push(str[i]);
         }
-        console.log(`${i} ${str[i]}: `);
-        
-        console.log(nums);
-        console.log(op);
     }
     if (number !== "") nums.push(number);
-    console.log(nums);
-    console.log(op);
-    
     
     while(nums.length >= 2 && op.length >= 1) {
         let kq = process(nums, op);
-        console.log(`siuwi ${kq}`);
-        
         nums.push(kq);
     }
     return nums[0];
